@@ -1,58 +1,75 @@
+/* base.css */
+
+/* =========================================
+   1. FONTS
+   ========================================= */
 @font-face {
-    font-family: Whitney;
-    src: url(../fonts/WhitneyHTF-Bold.otf);
+    font-family: 'Whitney';
+    src: url('../fonts/WhitneyHTF-Light.otf') format('opentype');
+    font-weight: 300;
 }
 
 @font-face {
-    font-family: WhitneyLight;
-    src: url(../fonts/WhitneyHTF-Light.otf);
+    font-family: 'Whitney';
+    src: url('../fonts/WhitneyHTF-Bold.otf') format('opentype');
+    font-weight: 700;
 }
 
 @font-face {
-    font-family: HelveticaNeue;
-    src: url(../fonts/HelveticaNeue-Roman.otf);
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeue-Roman.otf') format('opentype');
+    font-weight: 400;
 }
 
+/* =========================================
+   2. VARIABLES
+   ========================================= */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #008bf5;
+    --link-color: #dba100;
+}
+
+/* =========================================
+   3. BASE STYLES
+   ========================================= */
 body {
-    background: white;
-    font-family: WhitneyLight, HelveticaNeue, Arial, sans-serif;
-    color: #008bf5;
+    background: var(--bg-color);
+    font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300; /* Aplica la variante Light por defecto */
+    color: var(--text-color);
     font-size: 20px;
     margin: 0;
     padding: 50px;
 }
 
 h1, h2, h3, h4 {
-    font-family: Whitney, HelveticaNeue, Arial, sans-serif;
+    font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; /* Aplica la variante Bold para los títulos */
     margin: 0;
-    padding: 10px 0 10px 0;
+    padding: 10px 0;
     letter-spacing: 3px;
 }
+
+h1 { font-size: 50px; }
+h2 { font-size: 40px; }
+h3 { font-size: 30px; }
+h4 { font-size: 25px; }
 
 a, p, li {
     margin: 0;
     padding: 0;
-    line-height: 25px;
+    line-height: 1.25; /* Relativo al tamaño de la fuente (equivalente a 25px para 20px) */
     letter-spacing: 2px;
 }
 
-h1 {
-    font-size: 50px;
-}
-
-h2 {
-    font-size: 40px;
-}
-
-h3 {
-    font-size: 30px;
-}
-
-h4 {
-    font-size: 25px;
-}
-
 a {
-    color: #dba100;
+    color: var(--link-color);
     text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+        filter: brightness(90%);
+    }
 }
